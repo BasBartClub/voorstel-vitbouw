@@ -1,0 +1,40 @@
+/* FilmForge wordmark replaces Awake glyph logo */
+.Logo-module__BPrZ0W__logo{display:none!important}
+:has(> .Logo-module__BPrZ0W__logo)::after{content:"filmforge.";font-family:var(--font-display),syne,sans-serif;font-weight:700;font-size:2.05rem;line-height:1;letter-spacing:-.045em;color:currentColor;display:block;white-space:nowrap}
+@media (max-width:767px){:has(> .Logo-module__BPrZ0W__logo)::after{font-size:1.55rem}}
+
+/* ===== UI polish 2026-11-06 ===== */
+/* No sideways scroll from decorative squiggles/tilted cards (desktop home was 1621px wide) */
+html,body{overflow-x:clip;max-width:100%}
+/* Consent: on the home hero keep it off the coin pile + headline (desktop: gap between WIJ and MAKEN; mobile: empty band under the intro copy). Elsewhere: compact bottom-right card. */
+.ConsentBanner-module__l3wmYG__panel{width:min(21rem,calc(100vw - var(--frame)*2 - 1rem));gap:.7rem;padding:1rem 1.1rem}
+body:has(.Hero-module__KTD73a__hero) .ConsentBanner-module__l3wmYG__wrap{bottom:auto;top:calc(var(--frame) + 6.5rem);right:50%;transform:translateX(50%)}
+@media (max-width:767px){
+  .ConsentBanner-module__l3wmYG__panel{width:calc(100vw - var(--frame)*2 - 1rem);padding:.85rem 1rem;gap:.6rem;font-size:.82rem}
+  body:has(.Hero-module__KTD73a__hero) .ConsentBanner-module__l3wmYG__wrap{top:max(20.5rem,40vh);right:50%}
+}
+/* Mobile tap targets in footer */
+@media (max-width:767px){
+  .Footer-module__yg9ahW__legalLink{display:inline-flex;align-items:center;min-height:2.75rem;padding:0 .35rem}
+  .Footer-module__yg9ahW__backToTop{min-height:2.75rem}
+}
+/* Consistent keyboard focus across Awake chrome and FilmForge add-on pages */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,video:focus-visible{outline:2px solid #ff003d;outline-offset:3px;border-radius:.35rem}
+::selection{background:#ff003d;color:#fff}
+
+/* ===== Hero fit 2026-11-06: headline + kicker + coin floor always INSIDE the red panel =====
+   Root cause: --t-hero = content-w/12 is width-only and the headline sits 10.5625rem down, so on wide
+   but short windows (1920 wide, ~750-850px tall viewport) 3 lines of ~149px push kicker + meta (the coin
+   floor) past --hero-h and overflow:hidden clips them. Fix: the panel is a size container; type is the
+   smaller of the width rule and the height budget, and the top gap shrinks before anything overflows. */
+@media (min-width:1280px){
+  .Hero-module__KTD73a__hero{container-type:size;container-name:ffhero}
+  .Hero-module__KTD73a__inner{height:100%;min-height:0}
+  .Hero-module__KTD73a__headline{
+    --ff-fs:min(var(--t-hero), calc((100cqh - 23rem) / 3.05));
+    font-size:max(3.5rem, var(--ff-fs));
+    margin-top:clamp(1rem, calc(100cqh - var(--ff-fs) * 3 - 21.5rem), 10.5625rem);
+  }
+  .Hero-module__KTD73a__kicker{margin-top:min(-4.75rem, calc(var(--ff-fs, 0px) * -.5))}
+  .Hero-module__KTD73a__meta{padding-top:clamp(1rem, 4cqh, 2.5rem)}
+}
