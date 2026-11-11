@@ -1,8 +1,6 @@
-/* FilmForge wordmark replaces Awake glyph logo */
-.Logo-module__BPrZ0W__logo{display:none!important}
-:has(> .Logo-module__BPrZ0W__logo)::after{content:"filmforge.";font-family:var(--font-display),syne,sans-serif;font-weight:700;font-size:2.05rem;line-height:1;letter-spacing:-.045em;color:currentColor;display:block;white-space:nowrap}
-@media (max-width:767px){:has(> .Logo-module__BPrZ0W__logo)::after{font-size:1.55rem}}
-
+/* Client text wordmark replaces FilmForge ::after wordmark */
+.Logo-module__BPrZ0W__logo{display:block!important}
+:has(> .Logo-module__BPrZ0W__logo)::after{content:none!important;display:none!important}
 /* ===== UI polish 2026-11-06 ===== */
 /* No sideways scroll from decorative squiggles/tilted cards (desktop home was 1621px wide) */
 html,body{overflow-x:clip;max-width:100%}

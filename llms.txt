@@ -1,7 +1,7 @@
 # FilmForge
 > AI-powered film production from Voorthuizen, Netherlands.
 
-FilmForge maakt AI-films, bedrijfsvideo’s, websites en webshops. AI maakt het beeld; editors maken de film.
+VITbouw werkt vanuit Hoevelaken. AI maakt het beeld; editors maken de film.
 
 Contact: daniel@filmforge.nl · 06 22 88 44 63 · KvK 83071830
 Site: https://basbartclub.github.io/voorstel-vitbouw
